@@ -4,7 +4,7 @@ A library of my mods for the indie game Bopl Battle
 ## PullableBlackHoles
 A mod that allows the grappling hook to pull white holes and black holes without dying or having the grappling hook pulled
 
-[here](https://github.com/maxgamertyper/PullableBlackHoles)
+[github](https://github.com/maxgamertyper/PullableBlackHoles)
 [thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/PullableBlackHoles/)
 
 ## PacmanBorder
