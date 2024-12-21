@@ -35,5 +35,6 @@ A mod that turns your own weapons (spikes, bombs, etc) friendly
 
 ## BetterTimeStop
 A mod that changes timestop to have a min (configurable) and max (configurable) time and can be used in between those times; the time stop will last for how long it is charged for in between those times
+
 [github](https://github.com/maxgamertyper/BetterTimeStop/tree/main)
 [thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/BetterTimeStop/)
