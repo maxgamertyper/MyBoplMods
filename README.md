@@ -41,3 +41,9 @@ A mod that changes timestop to have a min (configurable) and max (configurable) 
 
 [github](https://github.com/maxgamertyper/BetterTimeStop/tree/main)
 [thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/BetterTimeStop/)
+
+## AchievementManager
+A mod that allows you to select your abilites (currently only give all or remove all)
+
+[github](https://github.com/maxgamertyper/AchievementManager)
+[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AchievementManager/)
