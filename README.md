@@ -3,7 +3,7 @@ A library of my mods for the indie game Bopl Battle
 
 [all on thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
 
-current downloads as of updating: 34,759
+current downloads as of updating: 49,298
 
 ## PullableBlackHoles
 A mod that allows the grappling hook to pull white holes and black holes without dying or having the grappling hook pulled
@@ -54,3 +54,9 @@ A mod that makes the strength of the magnet proportional to the player size
 
 [github](https://github.com/maxgamertyper/MagnetiSize)
 [thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/MagnetiSize/)
+
+## AudioController
+A mod that allows you to change which audio is playing during a match, allows for custom mp3s to be imported into the game
+
+[github](https://github.com/maxgamertyper/BoplAudioController)
+[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AudioController/)
