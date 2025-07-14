@@ -3,7 +3,7 @@ A library of my mods for the indie game Bopl Battle
 
 [all on thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
 
-current downloads as of updating: 49,298
+current downloads as of updating: 77,240
 
 ## PullableBlackHoles
 A mod that allows the grappling hook to pull white holes and black holes without dying or having the grappling hook pulled
@@ -60,3 +60,9 @@ A mod that allows you to change which audio is playing during a match, allows fo
 
 [github](https://github.com/maxgamertyper/BoplAudioController)
 [thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AudioController/)
+
+## Kirby
+A mod that causes eaten players to have their abilities, size, and optionally color forcefully given to the person who ate them
+
+[github](https://github.com/maxgamertyper/KirbyBopl)
+[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/Kirby/)
