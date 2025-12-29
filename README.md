@@ -3,7 +3,14 @@ A library of my mods for the indie game Bopl Battle
 
 [all on thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
 
-current downloads as of updating: 96,922
+current downloads as of updating: 107,386
+
+## AbilityRoundRobin
+A bopl mod to change the way abilities are picked up
+
+[github](https://github.com/maxgamertyper/AbilityRoundRobinBopl)
+[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AbilityRoundRobin/)
+
 
 ## PullableBlackHoles
 A mod that allows the grappling hook to pull white holes and black holes without dying or having the grappling hook pulled
