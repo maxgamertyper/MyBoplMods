@@ -4,7 +4,7 @@ A centralized collection of engine patches, physics modifications, and custom st
 *small preface: Bopl Battle is a game that uses a peer to peer communication rather than a server - host communication. As a result, these mods have to think about individual player ids as a whole and each player in a lob needs the mod*
 
 
-[![Thunderstore](https://img.shields.io/badge/thunderstore-135%2C942-blue?style=for-the-badge)](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
+[![Downloads](https://img.shields.io/badge/downloads-135%2C942-blue?style=for-the-badge)](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
 ![Status Passive Maintenance](https://img.shields.io/badge/status-passive%20maintenance-green?style=for-the-badge)
 
 
