@@ -1,75 +1,135 @@
 # MyBoplMods
-A library of my mods for the indie game Bopl Battle
-
-[all on thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
-
-current downloads as of updating: 107,386
-
-## AbilityRoundRobin
-A bopl mod to change the way abilities are picked up
-
-[github](https://github.com/maxgamertyper/AbilityRoundRobinBopl)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AbilityRoundRobin/)
+A centralized collection of engine patches, physics modifications, and custom state managers built for the indie title Bopl Battle.
 
 
-## PullableBlackHoles
-A mod that allows the grappling hook to pull white holes and black holes without dying or having the grappling hook pulled
+[![Thunderstore](https://img.shields.io/badge/thunderstore-135%2C942-blue?style=for-the-badge)](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
+![Status Passive Maintenance](https://img.shields.io/badge/status-passive%20maintenance-green?style=for-the-badge)
 
-[github](https://github.com/maxgamertyper/PullableBlackHoles)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/PullableBlackHoles/)
 
-## PacmanBorder
-A mod that causes the horizontal borders to be like pacman. Items that hit the boundary on one side fly over to the other speed while keeping their momentum
+**Architecture:** Developed using C# and Harmony bytecode patching to hook into the Unity game engine's runtime loop and manipulate the game's CIL (Common Intermediate Language) through BepInEx.
+**Examples:** Every mod has examples of it being used available on github and my [youtube channel](https://www.youtube.com/@maxgamertyper1)
 
-[github](https://github.com/maxgamertyper/PacmanBopl)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/PacmanBorder/)
 
-## Suck / tsuG
-A mod that reverses the Gust ability so it sucks things in
+---
 
-[github](https://github.com/maxgamertyper/Bopl-Suck)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/tsuG/)
 
-## WaterRoll
-A mod that lets the roll ability to be used in the water"
-this mod has a config for "WaterJets" which boost the player out of the water if they are going to end the roll in the water
-it also has a config for "Antistalemate" this causes the player to die if they are under the water in a roll for over (configurable) second
+## Mods by Classification
 
-[github](https://github.com/maxgamertyper/Water-Roll)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/WaterRoll/)
 
-## FriendlyFired
-A mod that turns your own weapons (spikes, bombs, etc) friendly
+### 1. Physics and Projectile Manipulation
 
-[github](https://github.com/maxgamertyper/Friendly-Fired)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/FriendlyFired/)
 
-## BetterTimeStop
-A mod that changes timestop to have a min (configurable) and max (configurable) time and can be used in between those times; the time stop will last for how long it is charged for in between those times
+#### [PacmanBorder](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/PacmanBorder/)
+Modified the game's boundary system to implement seamless screen-wrapping (like Pac-Man). When a player or item hits the screen edge, the object instantly translates their position to the opposite border while fully preserving their velocity and momentum.
+*this only applies to horizontal movements as vertical-wrapping would cause entities to live forever*
 
-[github](https://github.com/maxgamertyper/BetterTimeStop/tree/main)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/BetterTimeStop/)
 
-## AchievementManager
-A mod that allows you to select your achievements (currently only give all or remove all)
+* **Simple Breakdown:** For projectiles and objects, the update method is modified so that if the item is out of bounds, its position is updated to have the same x-position as the other side while maintaining y-position and velocity. For raycasts, when the weapon is shot, if the ray goes out of bounds, the particle beam and the remaining distance is copied as another cast over to the other boundary of the map.
+* **Harmony Uses:** Prefix *- full overrides, which I now know aren't good and can cause many issues*
+* **[Source Code](https://github.com/maxgamertyper/PacmanBopl)**
 
-[github](https://github.com/maxgamertyper/AchievementManager)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AchievementManager/)
 
-## MagnetiSize
-A mod that makes the strength of the magnet proportional to the player size
+#### [PullableBlackHoles](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/PullableBlackHoles/)
+Altered the BlackHole game class to modify the interactions between the grappling hook item and the black hole.
 
-[github](https://github.com/maxgamertyper/MagnetiSize)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/MagnetiSize/)
 
-## AudioController
-A mod that allows you to change which audio is playing during a match, allows for custom mp3s to be imported into the game
+* **Simple Breakdown:** modifies the blackHole class's internal update to alter the default interactions it has with the grappling hook, which are adjustable in a separate config file.
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/PullableBlackHoles)**
 
-[github](https://github.com/maxgamertyper/BoplAudioController)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AudioController/)
 
-## Kirby
-A mod that causes eaten players to have their abilities, size, and optionally color forcefully given to the person who ate them
+#### [WaterRoll](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/WaterRoll/)
+Adjusts the game's Roll ability to allow it to survive inside of the game's bottom vertical bound (water). To ensure fairness, this has a config file that allows for stalemate (where a person is stuck underwater) prevention with a customizable time and "Water Boost" which allows players to get pushed out of the water when the ability ends.
 
-[github](https://github.com/maxgamertyper/KirbyBopl)
-[thunderstore](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/Kirby/)
+
+* **Simple Breakdown:** By default it disables the kill bounds for the player while the roll ability is active. With the addition of V2.0 Anti-stalemate and Water Boost were added. When enabled, Anti-stalemate creates a dictionary that links each player to a double value that updates every frame with the time the frame took, once this double reaches a set threshold, the player is then killed. Water boost works by checking if the player is under the map bounds and if they are found to be, they are given extra ability time to get in-bounds.
+* **Harmony Tools:** Prefix and Postfix
+* **[Source Code](https://github.com/maxgamertyper/Water-Roll)**
+
+
+#### [MagnetiSize](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/MagnetiSize/)
+Injected logic into the Magnet class to account for player size when applying ability effects
+
+
+* **Simple Breakdown:** Changes the strength of effects by applying the modifier of game size before the effects are applied
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/MagnetiSize)**
+
+
+#### [Suck / tsuG](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/tsuG/)
+Inverts the physical repulsion of the gust ability into an attraction
+
+
+* **Simple Breakdown:** multiplies the effect vector by -1 (super simple i know, but super fun still)
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/Bopl-Suck)**
+
+
+---
+
+
+### 2. Game State & Logic Manipulation
+
+
+*these mods partially use transpilers as they are very core game mechanics*
+
+
+#### [Kirby](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/Kirby/)
+Allows for player state copying and customizations when 'munching' another player
+
+
+* **Simple Breakdown:** Ensures that the player is in their last life and then copies their abilities, player color, and size (all configurable) through complex ways of setting data. Disables the drop mechanics for the dead player to make sure no abilities are overwritten.
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/KirbyBopl)**
+
+
+#### [AbilityRoundRobin](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AbilityRoundRobin/)
+Modifies the ways abilities are picked up to a round-robin system instead of a set system
+
+
+* **Simple Breakdown:** Uses CIL (Common Intermediate Language) injection to modify the functionality of certain functions without completely overriding them. By checking for simple if branches and constant loads, a static function call is included to run my custom code that updates the ability slot. Later, the literal load is replaced with a variable load to the new index.
+* **Harmony Tools:** Transpiler
+* **[Source Code](https://github.com/maxgamertyper/AbilityRoundRobinBopl)**
+
+
+#### [BetterTimeStop](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/BetterTimeStop/)
+Adjusts the Timestop ability to have a duration for as long as its charged for
+
+
+* **Simple Breakdown:** Overrides CIL bytecode to have a maximum limit set to a configurable variable where the time is automatically stopped when reached. Otherwise uses a dictionary to track a player's charging time and then uses that as the length of the timestop.
+* **Harmony Tools:** PostFix and Transpiler
+* **[Source Code](https://github.com/maxgamertyper/BetterTimeStop/tree/main)**
+
+
+#### [FriendlyFired](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/FriendlyFired/)
+Disables the hurtbox and 'pullbox' (black holes) of certain abilities for the owner of that ability
+
+
+* **Simple Breakdown:** When an object awakes, it is then looked at to view if the current player is the owner, if so it disables the hurt and/or pull box for that specific player. Very customizable with any ability being able to be disabled or enabled
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/Friendly-Fired)**
+
+
+---
+
+
+### I/O & Network Modifications
+
+
+#### [AudioController](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AudioController/)
+enables you to change which audio is playing during a match, allows for custom mp3s to be imported into the game
+
+
+* **Simple Breakdown:** Prefetches mp3 files as Unity audio files and then converts them to an AudioClip class (Bopl relies on this) which is then pushed into an AudioManager class that allows for easy organization and management (i.e: volume level, skip, previous, loop, loop each once, random, etc).
+* **Harmony Tools:** Prefix and Postfix
+* **[Source Code](https://github.com/maxgamertyper/BoplAudioController)**
+
+
+#### [AchievementManager](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/AchievementManager/)
+Simple mod that gives or removes all the steam achievements *made on a bet i couldn't do it quickly which i won*
+
+
+* **Simple Breakdown:** Uses the steam API in the game to detect all achievements and then either gives or removes them based on a config setting
+* **Harmony Tools:** Prefix
+* **[Source Code](https://github.com/maxgamertyper/AchievementManager)**
+
