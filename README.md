@@ -1,11 +1,17 @@
 # MyBoplMods
 A centralized collection of engine patches, physics modifications, and custom state managers built for the indie title Bopl Battle.
 
-*small preface: Bopl Battle is a game that uses a peer to peer communication rather than a server - host communication. As a result, these mods have to think about individual player ids as a whole and each player in a lob needs the mod*
+---
 
+## General Information
+
+
+*small preface: Bopl Battle is a game that uses a pure P2P communication rather than a client-server communication. As a result, there is no master client or server that updates everyone else; each game runs its own simulation of what is supposed to happen. Because any slight mismatch can cause a ton of desync, these mods have to track individual player IDs perfectly, and every player in a lobby needs the mod installed.*
 
 [![Downloads](https://img.shields.io/badge/downloads-135%2C942-blue?style=for-the-badge)](https://thunderstore.io/c/bopl-battle/p/maxgamertyper1/)
 ![Status Passive Maintenance](https://img.shields.io/badge/status-passive%20maintenance-green?style=for-the-badge)
+
+**Impact and Outreach:** My 11 mods contribute to the modding community in a very major way. The amount of mods on thunderstore *widley considered the modding community* total 261, accounting for my 11 mods that is ~4.2% of the total mod count. Through these 261 mods, there have been 2,791,372 total downloads, my mods account for 135,942 of these downloads or roughly 5%. Thus, my mods have contributed a very large impact to the community and user's genuinley enjoy them.  
 
 
 **Architecture:** Developed using C# and Harmony bytecode patching to hook into the Unity game engine's runtime loop and manipulate the game's CIL (Common Intermediate Language) through BepInEx.
