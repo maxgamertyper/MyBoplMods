@@ -16,7 +16,7 @@ A centralized collection of engine patches, physics modifications, and custom st
 
 **Architecture:** Developed using C# and Harmony bytecode patching to hook into the Unity game engine's runtime loop and manipulate the game's CIL (Common Intermediate Language) through BepInEx.
 
-**Examples:** Most mods have examples of usage available on github *the individual repos* and my [youtube channel](https://www.youtube.com/@maxgamertyper1)
+**Examples:** Most mods have examples of usage available on github *(the individual repos)* and my [youtube channel](https://www.youtube.com/@maxgamertyper1)
 
 
 ---
