@@ -21,6 +21,11 @@ A centralized collection of engine patches, physics modifications, and custom st
 
 ---
 
+## Community Recognition
+* **Official Competitive Integration:** 2 of the 22 total mods featured in the official **Bopl Battle Competitive Modpack** (`WaterRoll` and `PacmanBorder`) were developed by me, establishing these frameworks as core standards for tournament play.
+
+---
+
 
 ## Mods by Classification
 
