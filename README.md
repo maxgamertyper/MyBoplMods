@@ -26,6 +26,8 @@ A centralized collection of engine patches, physics modifications, and custom st
 * **Community Standardization:** While the community had some standards when making mods, they were very lax and were not inviting to new community members. As a result, I wanted to change the community to have more formally designed mod icons *(see below)*. In the past year or two, the community has moved more toward professional mod icons, and it looks incredible now. Additionally, many mods at the time were not configurable, and they overlapped each other a lot. I wanted to ensure that I made my mods modular and configurable so that players can use multiple mods at once and configure them for the maximum amount of entertainment.
 
 
+*Mod Icons*
+
 ![Mod Icon Grid](ModIconGrid.png)
 
 ---
